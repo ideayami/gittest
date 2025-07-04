@@ -1,0 +1,20 @@
+<!-- templates/tracking.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google に移動中...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/tracker.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Googleに移動中...</h1>
+        <div class="status-box">
+            <p id="status">しばらくお待ちください...</p>
+            <div class="loader"></div>
+        </div>
+    </div>
+</body>
+</html>

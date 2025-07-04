@@ -1,0 +1,42 @@
+<!-- templates/data.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>収集した位置情報</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>収集した位置情報</h1>
+        
+        {% if location_data %}
+            <table class="data-table">
+                <tr>
+                    <th>緯度</th>
+                    <th>経度</th>
+                    <th>タイムスタンプ</th>
+                    <th>ユーザーエージェント</th>
+                    <th>IPアドレス</th>
+                    <th>地図で見る</th>
+                </tr>
+                {% for entry in location_data %}
+                <tr>
+                    <td>{{ entry.latitude }}</td>
+                    <td>{{ entry.longitude }}</td>
+                    <td>{{ entry.timestamp }}</td>
+                    <td>{{ entry.user_agent }}</td>
+                    <td>{{ entry.ip_address }}</td>
+                    <td><a href="https://www.google.com/maps?q={{ entry.latitude }},{{ entry.longitude }}" target="_blank">地図で見る</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>データがありません。</p>
+        {% endif %}
+        
+        <p><a href="/" class="btn">トップページに戻る</a></p>
+    </div>
+</body>
+</html>
